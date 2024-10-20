@@ -1,2 +1,6 @@
 # Environments
 env
+
+# Folders for cache data
+__pycache__
+migrations
