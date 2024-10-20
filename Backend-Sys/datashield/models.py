@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser , BaseUserManager, PermissionsMixin
 from django.utils.text import slugify
-from dotenv import load_env
+from dotenv import  load_dotenv
 import os
 
-load_env()
+load_dotenv()
 
 DBUSER = os.getenv("DBUSER")
 DBNAME = os.getenv("DBNAME")
