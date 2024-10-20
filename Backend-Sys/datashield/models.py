@@ -1,6 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser , BaseUserManager, PermissionsMixin
 from django.utils.text import slugify
+from dotenv import load_env
+import os
+
+load_env()
+
+DBUSER = os.getenv("DBUSER")
+DBNAME = os.getenv("DBNAME")
+DBPASS = os.getenv("DBPASS")
+DBHOST = os.getenv("DBHOST")
+DBPORT = os.getenv("DBPORT")
 
 class Organization(models.Model):
     """Model representing an organization."""
