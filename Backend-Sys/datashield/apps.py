@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TestBackendAppConfig(AppConfig):
+class DatashieldConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'test_backend_app'
+    name = 'datashield'
