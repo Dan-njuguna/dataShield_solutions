@@ -1,0 +1,44 @@
+.Topnavbar  ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    background-color: rgb(233, 233, 245);
+    padding: 20px 40px;
+    margin-top: 0%;
+}
+.Topnavbar ul a{
+    text-decoration: none;
+}
+
+
+
+.dash-container {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+
+} 
+.cont-col-1{
+    width:40%;
+}
+.dash-container .cont-col-2{
+    width: 60%;
+    margin-right: 0;
+    background-color: rgb(236, 232, 232);
+}
+
+.Sidenavbar ul {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: auto;
+    gap:30px;
+    background-color: rgb(161, 161, 199);
+    width: 40%;
+    height:50vh;
+    color: blue;
+}
+.Sidenavbar ul a {
+    text-decoration: none;
+}
