@@ -3,6 +3,10 @@ venv
 dsenv
 env
 
+<<<<<<< HEAD
 # Folders for cache data
 __pycache__
 migrations
+=======
+__pycache__
+>>>>>>> e288e21 (Add __pycache__ to .gitignore)
