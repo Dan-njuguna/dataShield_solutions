@@ -1,4 +1,9 @@
 # Environments
+<<<<<<< HEAD
+=======
+venv
+dsenv
+>>>>>>> main
 env
 
 # Folders for cache data
