@@ -136,7 +136,7 @@ class ComplianceStatus(models.Model):
 
     compliance_status = models.CharField(max_length=20, choices=COMPLIANCE_STATUS_CHOICES)
     last_checked_at = models.DateTimeField(auto_now=True)
-    organization = models.ForeignKey('Organization', on_delete=models.CASCADE)  # Assuming Organization exists
+    organization = models.ForeignKey('Organization', on_delete=models.CASCADE) 
     data_protection_regulations = models.ForeignKey(DataProtectionRegulation, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
