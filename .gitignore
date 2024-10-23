@@ -3,3 +3,4 @@ venv
 dsenv
 env
 
+__pycache__
