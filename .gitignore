@@ -1,8 +1,9 @@
 # Environments
-venv
-dsenv
-env
+myenv
 
-# Folders for cache data
+# Cache Data
 __pycache__
 migrations
+
+# Folders
+management
