@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import OverviewPage from '../Overview/body/OverviewPage';
+// import DSLogo from '../../Assets/DSlogo.png'
 
  function Sidenavbar() {
 
@@ -11,6 +12,8 @@ import OverviewPage from '../Overview/body/OverviewPage';
     <>
     {/* <div className='container'> */}
         <div className='Sidenavbar'>
+          {/* <img src = {DSLogo} alt = ""/>
+          < */}
             <ul>
               <Link to = '/' element = {<Dashboard/>}>help</Link>
               <Link to = '/' element = {<OverviewPage/>}>Overview</Link>

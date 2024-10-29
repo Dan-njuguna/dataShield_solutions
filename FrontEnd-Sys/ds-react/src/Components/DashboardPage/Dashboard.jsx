@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Sidenavbar from './Sidenavbar';
 import Topnavbar from './Topnavbar';
 import './index.css';
+import DSlogo from '../../Assets/DSlogo.png'
+// import styled from "styled-components"
 function Dashboard() {
 // create a function that maanges the state of  each individual component of the tiopnavbar and then 
 //pass that funtion to the topnavbar
@@ -17,10 +19,12 @@ const handleTopnavbarContent = (pageContent) => {
   // render the dashboard component here and import Sidenavbar and Topnavbar components
   return (
     <>
-    <Topnavbar onLinkClick = {handleTopnavbarContent}/>
+    <Topnavbar className = "Topnavbar" onLinkClick = {handleTopnavbarContent}/>
     <div className='dash-container'>
         <div className='cont-col-1'><Sidenavbar/></div>
         <div className="cont-col-2">
+        <img src = {DSlogo} alt = ""  className='logo' />
+          <p> Welcome to data shield</p>
           {/* Render the selected content here */}
           {selectedContent ? (
             <div>

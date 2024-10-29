@@ -1,0 +1,21 @@
+.title {
+text-align: center;
+text-transform: uppercase;
+margin: 70px 0px 30px;
+}
+.title h1{
+    text-align: center;
+    margin: 70px 0px 30px;
+    color:#212EA0;
+    font-size: 15px;
+    font-weight: 600;
+    
+}
+.title p{
+    text-align: center;
+    font-size: 32px;
+    color: black;
+    margin-top: 5px;
+    text-transform: none;
+
+}

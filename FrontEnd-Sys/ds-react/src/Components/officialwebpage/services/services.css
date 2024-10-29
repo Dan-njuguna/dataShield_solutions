@@ -1,0 +1,73 @@
+.services {
+    margin: 80px auto;
+    padding: 0 80px;
+    position: relative;
+}
+
+.services img {
+    background-color: #212EA0;
+    border-radius: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+
+.next-btn, .back-btn { /* Select each button individually */
+    position: absolute;
+    cursor: pointer;
+    background-color: #212EA0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.next-btn {
+    right: 0; /* Align next button to the far right */
+}
+
+.back-btn {
+    left: 0; /* Align back button to the far left */
+}
+.slider{
+    overflow: hidden;
+
+}
+.slider ul{
+    display: flex;
+    /* all lists are ALINGNED Horizontally and it is using  200% width*/
+    width: 200%; 
+    overflow-x: hidden;
+    transition:0.5s;
+    /* transform: translateX(-35%); */
+}
+.slider li {
+    list-style: none;
+    width: 50%;
+    padding: 20px;
+}
+.slide{
+    box-shadow:0 0 20px rgba(0,0, 0, 0.05);
+    padding:40px;
+    border-radius: 10px;
+    color:#676767;
+    line-height: 1.4;
+    /* background-color: rgb(36, 77, 77); */
+}
+.slide img{
+    width:80px ;
+    margin-right: 10px;
+    border-radius: 50px ;
+    /* border:4px solid blue; */
+
+}
+.info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.info h3 {
+    color:#212EA0;
+    margin-right: 10px;
+    font-weight: 300;
+    font-size: 24px;
+}

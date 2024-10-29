@@ -1,7 +1,11 @@
 import React from 'react'
+//import summaryData from '../../../../data'
+import './Rindex.css'
 
-export default function Regulations() {
+const Regulations= () =>{
   return (
-    <div>Regulations</div>
+    <div>Regualtions</div>
+    // <p className='Para'>{summaryData}</p>
   )
-}
+};
+export default Regulations;
