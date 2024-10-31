@@ -1,1 +1,8 @@
-venv/
+# Environments
+venv
+dsenv
+env
+
+# Folders for cache data
+__pycache__
+migrations
