@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DatashieldConfig(AppConfig):
+class ComplianceManagementConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'datashield'
+    name = 'compliance_management'
