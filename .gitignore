@@ -3,14 +3,9 @@ venv
 dsenv
 env
 
-<<<<<<< HEAD
 # Folders for cache data
-__pycache__
-<<<<<<< HEAD
 migrations
-=======
 __pycache__
->>>>>>> e288e21 (Add __pycache__ to .gitignore)
-=======
-=0.26.0
->>>>>>> 69709a5 (Refactor configuration file and add Django backend folder)
+
+# Files for dumps
+results
