@@ -21,7 +21,7 @@ export default function Webpage() {
     </div>
     <Demo/>
 
-<Title title="FAQs" subTitle = "Customer reviews "/>
+{/* <Title title="FAQs" subTitle = "Customer reviews "/> */}
 
 <Title  title = " Contact us" subTitle="Get in touch"/>
 <Contact/>

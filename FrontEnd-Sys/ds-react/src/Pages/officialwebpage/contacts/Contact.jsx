@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <div className="contact">
         <h3 className = "h3"> Send us a message <img src = {message_icon} alt = ""/></h3><br/>
-        <p> Feel free to reach out though contact form or find our contat </p>
+        {/* <p> Feel free to reach out though contact form or find our contat </p> */}
         <div className="contact-col">
             <ul>
             <li>contacts@datashield. <img src = {email_icon} alt = ""/></li>

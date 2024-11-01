@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Dashboard from './Dashboard';
-import OverviewPage from '../Overview/body/OverviewPage';
+import Dashboard from '../Dashboard';
+import OverviewPage from '../../Overview/OverviewPage';
 // import DSLogo from '../../Assets/DSlogo.png'
 
  function Sidenavbar() {

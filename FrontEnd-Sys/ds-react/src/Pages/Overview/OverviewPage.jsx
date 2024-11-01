@@ -1,13 +1,13 @@
 import React from 'react';
-import Card from '../card/Card';
-import Tabs from '../tabs/Tabs';
+import Card from './components/Card';
+import Tabs from './components/Tabs';
 import './index.css';
 // import DSlogo from '../../../Assets/DSlogo.png';
 const OverviewPage = () => {
   return (
   <>
   {/* <img src = {DSlogo} alt = "" className = "logo1"/> */}
-    <div >
+    <div  className='overview'>
       <Card/>
       <Tabs/>
     </div>

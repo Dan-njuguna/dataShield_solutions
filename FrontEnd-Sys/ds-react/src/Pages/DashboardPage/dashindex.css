@@ -1,32 +1,38 @@
 /* General Styles */
 body {
-  background-color: #fff;
-  margin: 0;
+  background-color:#f5ecff;
+  /* margin: 0; */
   font-family: Arial, sans-serif;
-  overflow: hidden; /* Prevent scrolling beyond the viewport */
+  overflow-X: hidden; /* Prevent scrolling beyond the viewport */
+  display:block;
+  align-items:center;
+  justify-content:center;
+  max-width: fixed;
+  overflow-x: hidden;
+  max-height: fit-content;
 }
 
 /* Dashboard Layout */
 .dash-container {
-  display: flex;
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  margin: 0;
-  align-items: center;
-  justify-content: space-between;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  padding-top:20px; 
 }
 
 /* Side Column (Sidenavbar) */
 .cont-col-1 {
   width: 25%;
-  padding: 20px;
+  padding: 50px;
   box-sizing: border-box;
-  background-color: #4B0082; /* Dark purple background */
+  background-color: #212EA0; /* Dark purple background */
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 0px 40px 40px 0px;
+  border-radius: 0px 10px 10px 0px;
 }
 
 /* Centering and Spacing for Items in Side Column */
@@ -37,11 +43,12 @@ body {
   flex-direction: column;
   gap: 10px;
   text-align: center;
+  width:20%;
 }
 
 /* Main Content Column */
 .cont-col-2 {
-  width: 75%; /* Adjusted width to fit better with side column */
+   width: 75%;/* Adjusted width to fit better with side column */
   padding: 20px;
   box-sizing: border-box;
   background-color: white;
@@ -49,7 +56,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 40px 0px 0px 40px;
+  border-radius: 10px 0px 0px 10px;
   overflow-y: auto; /* Allows scrolling for content */
 }
 
@@ -64,7 +71,7 @@ body {
 h2 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #4B0082;
+  color: #212EA0;
 }
 
 p {
@@ -77,7 +84,7 @@ p {
 .close-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #4B0082;
+  background-color: #212EA0;
   color: white;
   border: none;
   cursor: pointer;
@@ -93,13 +100,14 @@ p {
 /* Topnavbar Styles */
 .Topnavbar {
   width: 100%;
-  background-color: #4B0082;
+  background-color: #212EA0;
   padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  margin-top: 0;
+  /* margin:0; */
+
 }
 
 .Topnavbar ul {

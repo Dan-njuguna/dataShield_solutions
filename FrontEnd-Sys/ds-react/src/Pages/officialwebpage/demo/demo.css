@@ -3,10 +3,14 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap:20px;
 }
 .demo {
     background-color: rgb(201, 13, 13);
-    border: 2px solid white;
+    border: 2px 2px 2px 2px  solid white;
     box-shadow: 5px solid black;
-    padding: 20px;
+    padding: 10px 50px;
+    color: aliceblue;
+    border-radius:10px;
+    cursor:pointer;
 }

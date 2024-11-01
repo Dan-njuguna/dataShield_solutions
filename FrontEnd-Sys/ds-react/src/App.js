@@ -1,8 +1,8 @@
 import React from 'react';
-import OverviewPage from './Components/Overview/body/OverviewPage';
+import OverviewPage from './Pages/Overview/OverviewPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './Components/DashboardPage/Dashboard';
- import Webpage from './Components/officialwebpage/body';
+import Dashboard from './Pages/DashboardPage/Dashboard';
+ import Webpage from './Pages/officialwebpage/body';
 function App() {
   return (
     <BrowserRouter>

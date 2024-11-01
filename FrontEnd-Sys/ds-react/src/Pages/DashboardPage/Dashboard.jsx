@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Sidenavbar from './Sidenavbar';
-import Topnavbar from './Topnavbar';
+import Sidenavbar from './components/Sidenavbar';
+import Topnavbar from './components/Topnavbar';
 import './dashindex.css'
 import DSlogo from '../../Assets/DSlogo.png'
 // import styled from "styled-components"
