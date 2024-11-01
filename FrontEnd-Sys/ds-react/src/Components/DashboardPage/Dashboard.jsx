@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Sidenavbar from './Sidenavbar';
 import Topnavbar from './Topnavbar';
-import './index.css';
+import './dashindex.css'
 import DSlogo from '../../Assets/DSlogo.png'
 // import styled from "styled-components"
 function Dashboard() {

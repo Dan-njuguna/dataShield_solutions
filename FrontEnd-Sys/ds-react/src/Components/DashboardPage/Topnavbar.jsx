@@ -1,6 +1,6 @@
 
 import {Link} from 'react-router-dom';
-import './index.css';
+import './dashindex.css'
 import { PolicyPop } from './DashContent/PolicyPop/PolicyPop';
 import Reportspop from './DashContent/ReportsPop/Reportspop';
 import UserMng from './DashContent/UserManangementPop/UserMng';

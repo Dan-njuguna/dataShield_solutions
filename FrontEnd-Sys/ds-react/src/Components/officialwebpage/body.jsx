@@ -6,6 +6,7 @@ import Services from './services/services'
 import Title from './title/TItle'
 import AboutWebpage from './About/AboutWebpage'
 import Contact from './contacts/Contact'
+import Demo from './demo/demo'
 export default function Webpage() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function Webpage() {
     <div className="container ">
     <Services/>
     </div>
+    <Demo/>
 
 <Title title="FAQs" subTitle = "Customer reviews "/>
 

@@ -1,0 +1,12 @@
+.demo-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.demo {
+    background-color: rgb(201, 13, 13);
+    border: 2px solid white;
+    box-shadow: 5px solid black;
+    padding: 20px;
+}
