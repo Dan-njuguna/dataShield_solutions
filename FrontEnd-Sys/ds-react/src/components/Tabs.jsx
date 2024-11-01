@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Dashboard from '../../DashboardPage/Dashboard';
+import Dashboard from '../Pages/DashboardPage/Dashboard';
 import '../index.css'
 // import styled from 'styled-components';
  function Tabs (){

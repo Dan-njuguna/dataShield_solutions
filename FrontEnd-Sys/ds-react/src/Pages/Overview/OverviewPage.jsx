@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from './components/Card';
-import Tabs from './components/Tabs';
+import Card from '../../components/Card';
+import Tabs from '../../components/Tabs';
 import './index.css';
+
 // import DSlogo from '../../../Assets/DSlogo.png';
 const OverviewPage = () => {
   return (

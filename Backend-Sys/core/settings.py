@@ -47,7 +47,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {'BACKEND':"django.template.backends.django.DjangoTemplates", 
-    'DIRS': ["../../Frontend-Sys/ds-react"],
+    'DIRS': [Path(__file__).resolve().parent.parent.parent.parent, "Frontend-Sys/ds-react/src/Pages"],
     'APP_DIRS':True,
     'OPTIONS':{
         "context_processors": [
@@ -85,7 +85,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [Path(__file__).resolve().parent.parent.parent, "staticfiles"]
+STATICFILES_DIRS = [Path(__file__).resolve().parent.parent.parent.parent, "staticfiles"]
 STATIC_ROOT = ("../../Frontend-Sys/ds-react/src")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

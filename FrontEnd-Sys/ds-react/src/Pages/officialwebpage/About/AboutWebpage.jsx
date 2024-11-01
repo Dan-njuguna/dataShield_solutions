@@ -1,5 +1,5 @@
 import React from 'react'
-import Aboutimg from '../../../Assets/abt_img.jpeg'
+import Aboutimg from '../../../img/abt_img.jpeg'
 //import play_icon from '../../../Assets/play_icon.png'
 import './about.css'
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.css'
-import DSlogo from '../../../Assets/DSlogo.png'
+import DSlogo from '../../../img/DSlogo.png'
 
 export default function Naavbar() {
   const [sticky, setSticky] = useState(false);

@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../dashindex.css'
-import PolicyPop from '../DashContent/PolicyPop/PolicyPop';
-import Reportspop from '../DashContent/ReportsPop/Reportspop'
-import UserMng from '../DashContent/UserManangementPop/UserMng';
-import AuditLogs from '../DashContent/AuditLogsPop/AuditLogs';
-import Regulations from '../DashContent/RegulationsPop/Regulations';
+import '../Pages/DashboardPage/dashindex.css'
+import PolicyPop from '../Pages/DashboardPage/DashContent/PolicyPop/PolicyPop';
+import Reportspop from '../Pages/DashboardPage/DashContent/ReportsPop/Reportspop'
+import UserMng from '../Pages/DashboardPage/DashContent/UserManangementPop/UserMng';
+import AuditLogs from '../Pages/DashboardPage/DashContent/AuditLogsPop/AuditLogs';
+import Regulations from '../Pages/DashboardPage/DashContent/RegulationsPop/Regulations';
 
  function Topnavbar({onLinkClick}) {
 // const closeColumn =() => {

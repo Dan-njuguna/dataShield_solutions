@@ -1,6 +1,6 @@
 import React from 'react'
 import './hero.css'
-import dark_arrow from '../../../Assets/dark_arrow.png'
+import dark_arrow from '../../../img/dark_arrow.png'
 
 export default function Hero() {
   return (

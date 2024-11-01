@@ -1,9 +1,9 @@
 import React from 'react'
 import './contacts.css'
-import message_icon from '../../../Assets/msg_icon.png'
-import location_icon from '../../../Assets/location_icon.png'
-import phone_icon from '../../../Assets/phone_icon.png'
-import email_icon from '../../../Assets/email_icon.png'
+import message_icon from '../../../img/msg_icon.png'
+import location_icon from '../../../img/location_icon.png'
+import phone_icon from '../../../img/phone_icon.png'
+import email_icon from '../../../img/email_icon.png'
 export default function Contact() {
   return (
     <div className="contact">

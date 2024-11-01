@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Sidenavbar from './components/Sidenavbar';
-import Topnavbar from './components/Topnavbar';
+import Sidenavbar from '../../components/Sidenavbar';
+import Topnavbar from '../../components/Topnavbar';
 import './dashindex.css'
-import DSlogo from '../../Assets/DSlogo.png'
+import DSlogo from '../../img/DSlogo.png'
 // import styled from "styled-components"
 function Dashboard() {
 // create a function that maanges the state of  each individual component of the tiopnavbar and then 

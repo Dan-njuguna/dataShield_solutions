@@ -1,12 +1,12 @@
 import React from 'react'
 import { useRef } from 'react'
 import './services.css'
-import audits from '../../../Assets/audits.jpeg'
-import Regulation from '../../../Assets/Regulation.jpeg'
-import Risk_mng from '../../../Assets/Risk_mng.jpeg'
-import back_icon from '../../../Assets/Back_icon (2).png'
-import next_icon from '../../../Assets/Next_icon (2).png'
-//import check_cirlce from '../../../Assets/check_circle.png'
+import audits from '../../../img/audits.jpeg'
+import Regulation from '../../../img/Regulation.jpeg'
+import Risk_mng from '../../../img/Risk_mng.jpeg'
+import back_icon from '../../../img/Back_icon (2).png'
+import next_icon from '../../../img/Next_icon (2).png'
+//import check_cirlce from '../../../img/check_circle.png'
 export default function Services() {
     // to select the ul tag we use useRef
     const slider = useRef();
