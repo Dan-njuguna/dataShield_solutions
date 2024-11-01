@@ -38,6 +38,9 @@ COPY . /app
 # Expose the port the app runs on
 EXPOSE 8000
 
+# Collect the static files
+RUN venv/bin/python manage.py collectstatic --noinput
+
 # Making Database Migrations and Static files collection
 # Run the migrations
 RUN venv/bin/python manage.py makemigrations && venv/bin/python manage.py migrate
