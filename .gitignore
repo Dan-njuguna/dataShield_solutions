@@ -1,5 +1,8 @@
 # Environments
 myenv
+env
+venv
+dsenv
 
 # Folders for cache data
 migrations
