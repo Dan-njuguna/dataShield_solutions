@@ -49,5 +49,3 @@ def log_action_view(request):
             return JsonResponse({'success':True,  'log_id':log_entry.id,  'slug':log_entry.slug}, status=201)
         return JsonResponse({'success':False,  'errors':form.errors}, status=400)
     return JsonResponse({'success':False,  'message':"Invalid request method."}, status=400)
-
-
