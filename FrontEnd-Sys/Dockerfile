@@ -1,24 +1,30 @@
-
-FROM node:18-alpine
+# Stage 1: Build the React app
+FROM node:18-alpine AS build
 
 # Set the working directory
 WORKDIR /app
 
 # Copy the package.json and install dependencies
-COPY ds-react/package.json /app/
+COPY ./ds-react/package.json /app/
 RUN npm install
 
 # Copy the rest of the application code
 COPY ./ds-react /app
 
-# Installing react-scripts
-RUN npm install react-scripts@4.0.3 -g
-
 # Build the app
 RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 3000
+# Stage 2: Serve the app with nginx
+FROM nginx:alpine
 
-# Serve the app
-CMD ["npm", "start"]
+# Copy the built files from the previous stage
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Copy custom nginx configuration if needed
+# COPY ./nginx.conf /etc/nginx/nginx.conf
+
+# Expose the port the app runs on
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
