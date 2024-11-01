@@ -1,9 +1,12 @@
 # Environments
 myenv
 
-# Cache Data
-__pycache__
+# Folders for cache data
 migrations
+__pycache__
+
+# Files for dumps
+results
 
 # Folders
 management
