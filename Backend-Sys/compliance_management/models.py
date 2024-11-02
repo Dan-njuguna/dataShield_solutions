@@ -1,9 +1,9 @@
 
 from django.db import models
 from authentication.models import Organization, User
-
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 DBUSER = os.getenv("DBUSER")
 DBNAME = os.getenv("DBNAME")
