@@ -1,4 +1,15 @@
 services:
+  frontend:
+    build:
+      context: ./FrontEnd-Sys
+      dockerfile: Dockerfile
+    volumes:
+      - ./Frontend-Sys:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  
   backend:
     build:
       context: ./Backend-Sys
@@ -10,22 +21,13 @@ services:
     depends_on:
       - db
     environment:
-      - POSTGRES_DB=data_shield_db
-      - POSTGRES_USER=data_shield
-      - POSTGRES_PASSWORD=data_shield_pass
-      - POSTGRES_HOST=localhost
+      PGHOST: db
+      PGUSER: data_shield
+      PGPASSWORD: data_shield_pass
+      PGDATABASE: data_shield_db
+      PGPORT: 5432
+      DJANGO_SETTINGS_MODULE: data_shield.settings
     command: python /app/manage.py runserver 0.0.0.0:8000
-
-  frontend:
-    build:
-      context: ./FrontEnd-Sys
-      dockerfile: Dockerfile
-    volumes:
-      - ./Frontend-Sys:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
 
   db:
     image: postgres:13
@@ -35,6 +37,10 @@ services:
       POSTGRES_DB: data_shield_db
       POSTGRES_USER: data_shield
       POSTGRES_PASSWORD: data_shield_pass
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:
+
+
