@@ -1,4 +1,3 @@
-
 # Size of source mod 2**32: 2118 bytes
 from django.http import JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
@@ -9,14 +8,19 @@ import json
 def audit_log_list(request):
     """View to list all audit logs."""
     logs = AuditLog.objects.all()
-    log_data = [{'id':log.id, 
-     'action':log.action, 
-     'affected_resource':log.affected_resource, 
-     'user':log.user.email if (log.user) else "System", 
-     'organization':(log.organization).name, 
-     'created_at':log.created_at, 
-     'is_compliant':log.is_compliant, 
-     'slug':log.slug} for log in logs]
+    log_data = [
+        {
+            'id': log.id,
+            'action': log.action,
+            'affected_resource': log.affected_resource,
+            'user': log.user.email if (log.user) else "System",
+            'organization': (log.organization).name,
+            'created_at': log.created_at,
+            'is_compliant': log.is_compliant,
+            'slug': log.slug
+        } for log in logs
+    ]
+
     return JsonResponse({"logs": log_data}, safe=False)
 
 
