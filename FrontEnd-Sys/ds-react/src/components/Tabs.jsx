@@ -15,10 +15,6 @@ import '../index.css'
             </ul>
          </div>
         </>
-
-       
-    
-
     );
  }
  export default Tabs;
