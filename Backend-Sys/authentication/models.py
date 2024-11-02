@@ -3,9 +3,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils.text import slugify
 from django.core.validators import EmailValidator
-
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 DBUSER = os.getenv("DBUSER")
 DBNAME = os.getenv("DBNAME")
@@ -99,5 +99,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         """Return the short name of the user."""
         return self.first_name
-
-

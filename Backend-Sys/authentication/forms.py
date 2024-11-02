@@ -8,7 +8,6 @@ from django import forms
 from .models import User, Organization
 
 class UserRegistrationForm(forms.ModelForm):
-
     class Meta:
         model = User
         fields = ["email","first_name","last_name","organization","password"]
@@ -23,7 +22,6 @@ class UserRegistrationForm(forms.ModelForm):
 
 
 class OrganizationRegistrationForm(forms.ModelForm):
-
     class Meta:
         model = Organization
         fields =        ["name","address","contact_person","contact_email","contact_number","industry","company_size"]
