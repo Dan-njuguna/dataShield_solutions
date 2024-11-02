@@ -7,7 +7,6 @@ from .serializers import DataEntrySerializer, ProcessDataSerializer
 from django.shortcuts import get_object_or_404
 import time  # For simulating processing delay
 
-# Create your views here.
 
 # Function for displaying the default path
 def homepage(request):
@@ -35,6 +34,7 @@ class DataUploadView(generics.CreateAPIView):
             headers=headers
         )
 
+
 # EndPoint for Processing data
 class DataProcessView(APIView):
     def post(self, request, format=None):
@@ -49,7 +49,7 @@ class DataProcessView(APIView):
                     status=status.HTTP_404_BAD_REQUEST
                 )
 
-
+            else:
                 # update status to processing
                 data_entry.status = 'processing'
                 data_entry.save()
@@ -71,7 +71,7 @@ class DataProcessView(APIView):
                             "status": "success",
                             "processed_data": processed
                         },
-                        status=status/HTTP_200_OK
+                        status=status.HTTP_200_OK
                     )
                 except Exception as e:
                     data_entry.status = 'failed'
@@ -84,10 +84,8 @@ class DataProcessView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 # Endpoint to check the status of data processing.
 class DataStatusView(APIView):
-
     def get(self, request, data_id, format=None):
         data_entry = get_object_or_404(DataEntry, id=data_id)
         serializer = DataEntrySerializer(data_entry)
@@ -96,9 +94,7 @@ class DataStatusView(APIView):
             status=status.HTTP_200_OK
         )
 
-
 # Endpoint to fetch processed data
-
 class DataResultView(APIView):
     def get(self, request, data_id, format=None):
         data_entry = get_object_or_404(DataEntry, id=data_id)
@@ -111,8 +107,3 @@ class DataResultView(APIView):
             {"status": "success", "processed_data": data_entry.processed_data},
             status=status.HTTP_200_OK
         )
-
-
-
-
-
