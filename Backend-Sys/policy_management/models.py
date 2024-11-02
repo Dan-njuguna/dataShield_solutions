@@ -5,11 +5,13 @@ from authentication.models import User
 from dotenv import load_dotenv
 import os
 load_dotenv()
+
 DBUSER = os.getenv("DBUSER")
 DBNAME = os.getenv("DBNAME")
 DBPASS = os.getenv("DBPASS")
 DBHOST = os.getenv("DBHOST")
 DBPORT = os.getenv("DBPORT")
+
 
 class Policy(models.Model):
     __doc__ = "Model representing a policy document."
@@ -46,5 +48,3 @@ class ApprovalWorkflow(models.Model):
 
     def __str__(self):
         return f"{self.policy.title} approved by {self.approved_by.email}"
-
-
