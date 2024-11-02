@@ -79,5 +79,3 @@ class ComplianceAudit(models.Model):
     def __str__(self):
         """Return string representation of the compliance audit."""
         return f'Compliance Audit for {self.organization} on {self.audit_date.strftime("%Y-%m-%d")}'
-
-

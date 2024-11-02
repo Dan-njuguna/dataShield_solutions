@@ -69,5 +69,3 @@ def create_compliance_audit(request):
             data = serializers.serialize("json", [audit])
             return JsonResponse(data, status=201, safe=False)
         return JsonResponse({"error": "Invalid data"}, status=400)
-
-
