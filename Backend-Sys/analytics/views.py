@@ -9,9 +9,13 @@ def metrics_view(request):
     actions_count = AuditLog.objects.filter(created_at__gte=(timezone.now() - timedelta(days=30))).count()
     compliant_count = ComplianceStatus.objects.filter(compliance_status="compliant").count()
     non_compliant_count = ComplianceStatus.objects.filter(compliance_status="non-compliant").count()
-    metrics = {'actions_count':actions_count, 
-     'compliant_count':compliant_count, 
-     'non_compliant_count':non_compliant_count}
+
+    metrics = {
+        'actions_count': actions_count,
+        'compliant_count': compliant_count,
+        'non_compliant_count': non_compliant_count
+        }
+
     return JsonResponse(metrics)
 
 
