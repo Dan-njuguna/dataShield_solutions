@@ -1,5 +1,17 @@
 //the AuditLogs compnentsreceives the properties in line five from the paent component that mananges th state which is the Topnavbar
- function AuditLogs({content, isOpen, onClose }) {
+import axios from  'axios';
+
+//create a funtion tot fetch data from backend
+const fetchData = async () => {
+  try {
+    const response = await axios.get('http:localhost:8000/api/');
+    console.log(response.data);
+  }catch(error){
+    console.error("error fetching data:", error); 
+  }
+}
+
+function AuditLogs({content, isOpen, onClose }) {
   if (!isOpen) return null;
 const columStyle = {
   width: '75%',
