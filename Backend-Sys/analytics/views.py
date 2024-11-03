@@ -17,6 +17,3 @@ def metrics_view(request):
         }
 
     return JsonResponse(metrics)
-
-
-

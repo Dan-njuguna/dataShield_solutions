@@ -15,7 +15,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
+
+# Application definition
+CORS = {
+    "ALLOW_ALL_ORIGINS": True,
+    "ALLOW_ALL_HEADERS": True,
+    "ALLOW_ALL_METHODS": True,
+}
+
+# Allowing all origins, headers and methods
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 INSTALLED_APPS = [
@@ -84,8 +94,8 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = (os.path.join(BASE_DIR.parent, 'staticfiles'))
-STATICFILES_DIRS = [os.path.join(BASE_DIR.parent, 'Frontend-Sys/ds-react/build/static')]
+# STATIC_ROOT = (os.path.join(BASE_DIR.parent, 'staticfiles'))
+# STATICFILES_DIRS = [os.path.join(BASE_DIR.parent, 'Frontend-Sys/ds-react/build/static')]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -95,8 +105,8 @@ ASGI_APPLICATION = 'core.asgi.application'
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
 
 CHANNEL_LAYERS = {
     'default': {
