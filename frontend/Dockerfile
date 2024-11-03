@@ -5,14 +5,16 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 # Copy the package.json and install dependencies
-COPY ./ds-react/package.json /app/
+COPY ./package.json /app/
 RUN npm install
 
 # Copy the rest of the application code
-COPY ./ds-react /app
+COPY . /app
 
 # Build the app
 RUN npm run build
+
+RUN npm install axios
 
 # Stage 2: Serve the app with nginx
 FROM nginx:alpine
