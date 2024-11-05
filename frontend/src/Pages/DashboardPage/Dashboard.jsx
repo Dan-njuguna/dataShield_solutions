@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidenavbar from '../../components/Sidenavbar';
 import Topnavbar from '../../components/Topnavbar';
-import AuditLogs from '../../components/AuditLogs';
+import AuditLogs from '../DashboardPage/DashContent/AuditLogsPop/AuditLogs'
 import './dashindex.css';
 import DSlogo from '../../img/DSlogo.png';
 import axios from 'axios';
@@ -21,7 +21,7 @@ function Dashboard() {
   // Function to fetch data from the backend for AuditLogs
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/logs/');
+      const response = await axios.get('http://localhost:8000/logs/audit/');
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
