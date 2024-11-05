@@ -38,33 +38,18 @@ COPY . /app
 # Expose the port the app runs on
 EXPOSE 8000
 
-# # Collect the static files
-# RUN venv/bin/python manage.py collectstatic --noinput
-
-# Making Database Migrations and Static files collection
-# Run the migrations
-RUN venv/bin/python manage.py makemigrations && venv/bin/python manage.py migrate
-# # Collect the static files
-# RUN venv/bin/python manage.py collectstatic --noinput
+# Add wait-for-it script to wait for the database to be ready
+COPY runner.sh /runner.sh
+RUN chmod +x /runner.sh
 
 # Environment variables for superuser
 ENV DJANGO_SUPERUSER_USERNAME=root-admin
 ENV DJANGO_SUPERUSER_EMAIL=ai.doesntstop@gmail.com
 ENV DJANGO_SUPERUSER_PASSWORD=pass@1234
 
-# Create a superuser
-# Create superuser and set password
-RUN venv/bin/python manage.py createsuperuser --noinput \
-    --username $DJANGO_SUPERUSER_USERNAME \
-    --email $DJANGO_SUPERUSER_EMAIL || true && \
-    echo "from django.contrib.auth.models import User; \
-    user = User.objects.get(username='$DJANGO_SUPERUSER_USERNAME'); \
-    user.set_password('$DJANGO_SUPERUSER_PASSWORD'); \
-    user.save();" | venv/bin/python manage.py shell
-
 # Run the application
-ENTRYPOINT ["venv/bin/python", "manage.py", "runserver", "0.0.0.0:8000"]
-
-## Persisting the Database
-# The database is stored in a Docker volume, which is a persistent data storage mechanism.
-# This allows the database to be stored on the host machine and not be deleted when the container is removed.
+CMD /wait-for-it.sh $PGHOST:$PGPORT -- venv/bin/python manage.py makemigrations && \
+    venv/bin/python manage.py migrate && \
+    venv/bin/python manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL || true && \
+    echo "from django.contrib.auth.models import User; user = User.objects.get(username='$DJANGO_SUPERUSER_USERNAME'); user.set_password('$DJANGO_SUPERUSER_PASSWORD'); user.save();" | venv/bin/python manage.py shell && \
+    venv/bin/python manage.py runserver 0.0.0.0:8000
