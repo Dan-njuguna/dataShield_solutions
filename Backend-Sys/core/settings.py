@@ -4,18 +4,18 @@ import os
 
 load_dotenv()
 
-DBUSER = os.getenv("DBUSER")
-DBNAME = os.getenv("DBNAME")
-DBPASS = os.getenv("DBPASS")
-DBHOST = os.getenv("DBHOST")
-DBPORT = os.getenv("DBPORT")
+DBUSER = os.getenv("DBUSER", "default_user")
+DBNAME = os.getenv("DBNAME", "db")
+DBPASS = os.getenv("DBPASS", "default_pass")
+DBHOST = os.getenv("DBHOST", "localhost")
+DBPORT = os.getenv("DBPORT", "5432")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 CORS = {
@@ -56,7 +56,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {'BACKEND':"django.template.backends.django.DjangoTemplates", 
-    'DIRS': [os.path.join(BASE_DIR.parent, "Frontend-Sys/ds-react/src")],
+    'DIRS': [os.path.join(BASE_DIR, "frontend/src")],
     'APP_DIRS':True,
     'OPTIONS':{
         "context_processors": [
@@ -106,7 +106,7 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 # MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CHANNEL_LAYERS = {
     'default': {

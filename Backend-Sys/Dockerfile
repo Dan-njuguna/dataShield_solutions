@@ -38,17 +38,14 @@ COPY . /app
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Create the staticfiles directory
-RUN mkdir -p /app/staticfiles
-
-# Collect the static files
-RUN venv/bin/python manage.py collectstatic --noinput
+# # Collect the static files
+# RUN venv/bin/python manage.py collectstatic --noinput
 
 # Making Database Migrations and Static files collection
 # Run the migrations
 RUN venv/bin/python manage.py makemigrations && venv/bin/python manage.py migrate
-# Collect the static files
-RUN venv/bin/python manage.py collectstatic --noinput
+# # Collect the static files
+# RUN venv/bin/python manage.py collectstatic --noinput
 
 # Environment variables for superuser
 ENV DJANGO_SUPERUSER_USERNAME=root-admin
