@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DataProtectionRegulation, ComplianceStatus, ComplianceReport, ComplianceDocument, DataProcessingActivity, DPIA, Incident
+from .models import DataProtectionRegulation, ComplianceStatus, ComplianceReport, ComplianceDocument, DataProcessingActivity, DPIA, Incident, KenyaDPA
 
 @admin.register(DataProtectionRegulation)
 class DataProtectionRegulationAdmin(admin.ModelAdmin):
@@ -42,3 +42,7 @@ class IncidentAdmin(admin.ModelAdmin):
     list_display = ('description', 'date', 'reported_by')
     search_fields = ('description', 'reported_by__email')
 
+@admin.register(KenyaDPA)  # Registering the KenyaDPA model
+class KenyaDPAAdmin(admin.ModelAdmin):
+    list_display = ('data_protection_regulation_id', 'category', 'description', 'section_in_act')
+    search_fields = ('category', 'description', 'data_protection_regulation_id__name')

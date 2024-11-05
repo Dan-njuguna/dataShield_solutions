@@ -5,6 +5,7 @@ from .models import User, Organization
 from .forms import UserRegistrationForm, OrganizationRegistrationForm
 import json
 
+
 @csrf_exempt
 def user_register(request):
     if request.method == "POST":
