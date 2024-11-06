@@ -4,9 +4,9 @@ from django.urls import path,include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    # path("", TemplateView.as_view(template_name="OverviewPage.html")),
-    path('admin/', admin.site.urls),
     path("auth/", include("authentication.urls")),
+    path('admin/', admin.site.urls),
+    
     path("compliance/", include("compliance_management.urls")),
     path("policy/", include("policy_management.urls")),
     path("report/", include("reporting.urls")),

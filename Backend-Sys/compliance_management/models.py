@@ -21,7 +21,24 @@ class DataProtectionRegulation(models.Model):
         """Return string representation of the regulation."""
         return self.name
 
+from django.db import models
+from authentication.models import Organization  
+class KenyaDPA(models.Model):
+    """Model representing the data protection regulations specific to Kenya."""
+    id = models.AutoField(primary_key=True)  # Explicitly defining the id field
+    data_protection_regulation_id = models.ForeignKey(
+        'DataProtectionRegulation',  
+        on_delete=models.CASCADE,
+        help_text="The associated data protection regulation."
+    )
+    category = models.CharField(max_length=255, help_text="Category of the data protection requirement.")
+    description = models.TextField(help_text="Description of the requirement.")
+    section_in_act = models.CharField(max_length=255, help_text="Section in the act related to the requirement.")
+    key_points = models.TextField(help_text="Key points related to the requirement.")
 
+    def __str__(self):
+        """Return string representation of the Kenya DPA entry."""
+        return f"{self.category}: {self.description[:50]}..." 
 class ComplianceStatus(models.Model):
     __doc__ = "Model representing the compliance status of an organization."
     COMPLIANCE_STATUS_CHOICES = [
