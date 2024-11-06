@@ -35,6 +35,8 @@ RUN pip install virtualenv \
 # Copy the rest of the application code
 COPY . /app
 
+RUN pip install django==5.1.2
+
 # Expose the port the app runs on
 EXPOSE 8000
 
