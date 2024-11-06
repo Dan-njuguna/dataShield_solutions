@@ -24,7 +24,7 @@ ENV PGPASSWORD=data_shield_pass
 ENV PGDATABASE=data_shield_db
 
 # Copy the requirements file and install dependencies
-COPY ../requirements.txt /app/requirements.txt
+COPY /requirements.txt /app/requirements.txt
 
 # Install virtualenv and create a virtual environment
 RUN pip install virtualenv \
