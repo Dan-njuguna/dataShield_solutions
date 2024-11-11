@@ -1,0 +1,46 @@
+.Hero{
+    width: 100%;
+    min-height: 100vh;
+    background-image:linear-gradient(rgba(8, 0, 58, 0.7), rgba(8, 0, 58, 0.7)), url(../../../img/hero_img.jpeg) ;
+    background-size:cover;
+    background-position: center;
+    color:white;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background-color: #fff;
+}
+.btn2{
+    background-color:  blue;
+    color: rgb(231, 231, 238);
+    padding:14px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    /* cursor pointer changes appearance of mouse when it hovers over the btn */
+    cursor:pointer;    
+    font-size: 16px;
+    border:0;
+    outline:0;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn2 img {
+    width: 20px;
+    margin-left: 20px;
+    color: black;
+}
+.hero-text h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.hero-text p{
+    font-size: 20px;
+    margin: 10px auto 20px;
+    line-height: 1.4;
+}
+.hero-text {
+    text-align: center;
+    max-width:800px;
+}

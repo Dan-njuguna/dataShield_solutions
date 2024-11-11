@@ -1,0 +1,49 @@
+Category,Description,Section in Act,Key Points
+"(Lawfulness, Fairness, Transparency)","Data processing must be lawful, fair, and transparent to data subjects",Section 25,Must collect data based on consent or legal necessity
+Purpose Limitation,"Data should be collected for a specific, legitimate purpose",Section 26(a),No use of data for purposes beyond what is explicitly stated
+Data Minimization,Only collect the data that is necessary for the intended purpose,Section 26(b),Avoid excessive data collection
+Accuracy,Personal data must be accurate and kept up to date,Section 26(c),Incorrect or outdated data should be corrected or deleted
+Storage Limitation,Data should only be stored for as long as necessary,Section 26(d),Retain data only for the duration necessary for the stated purpose
+Integrity & Confidentiality,Ensure data security to prevent unauthorized access,Section 26(e),Implement security measures to protect personal data
+Accountability,The data controller/processor is responsible for complying with these principles,Section 26(f),Controllers/processors must show compliance with the Act
+Category,Description,Section in Act,Key Points
+Right to Access,Data subjects have the right to access their personal data,Section 30(1),Individuals can request a copy of their data from the controller
+Right to Rectification,Data subjects have the right to correct inaccurate data,Section 30(2),Controllers must correct inaccurate or incomplete data
+Right to Erasure,Data subjects have the right to request deletion of data,Section 30(3),"Data must be erased upon the data subject’s request, if lawful"
+Right to Data Portability,Data subjects have the right to transfer their data to another entity,Section 30(4),Data should be provided in a machine-readable format
+Right to Object,Individuals can object to the processing of their personal data,Section 30(5),Controllers must stop processing data upon objection unless overriding legitimate reasons exist
+Right to Restriction,Data subjects can request restricted processing under certain conditions,Section 30(6),"Limits processing of data in specific circumstances (e.g., pending rectification)"
+Category,Description,Section in Act,Key Points
+Registration,Data controllers and processors must register with the Data Commissioner,Section 18,Obligatory registration before processing personal data
+Data Protection Impact Assessments (DPIAs),Conduct DPIAs to assess risks of processing personal data,Section 31,Required for high-risk data processing activities
+Security Measures,Implement adequate security measures to protect personal data,Section 41,"Includes encryption, pseudonymization, and physical security"
+Notification of Breaches,Notify the Data Commissioner and affected individuals in case of data breaches,Section 43,Breaches must be reported within 72 hours
+Third-Party Contracts,Ensure contracts with third parties follow data protection guidelines,Section 42,Processors must follow controllers’ instructions and data protection rules
+Data Transfers,Ensure that data transfers to other countries meet adequate protection levels,Section 49,Only transfer data outside Kenya to countries with adequate protection laws
+Category,Description,Section in Act,Key Points
+Consent-based Processing,Data processing must be based on the data subject’s explicit consent,Section 32,"Consent must be informed, freely given, and specific"
+Processing for Research,Data for research purposes must ensure anonymization when possible,Section 33,Data must not be used to identify individuals in research
+Processing by Children,Special protections for children’s data processing,Section 34,Must verify the age of the child and seek parental/guardian consent
+Processing for Direct Marketing,Direct marketing data use requires explicit consent from the subject,Section 35,Individuals must be able to opt-out easily
+Category,Description,Section in Act,Penalties
+Failure to Register,Failure to register as a data controller or processor,Section 59,Fine not exceeding KSh 5 million or imprisonment not exceeding 2 years
+Failure to Conduct DPIA,Failure to carry out Data Protection Impact Assessment,Section 60,Penalty depending on the nature and impact of the non-compliance
+Data Breaches,Failure to notify the Commissioner and affected individuals,Section 61,"Fines, sanctions, or other corrective measures"
+Non-compliance with Data Subject Rights,"Refusing to fulfill subject rights (access, rectification, etc.)",Section 62,"Fines and potential legal action from affected individuals"
+Unlawful Data Transfers,Unauthorized transfer of data to foreign countries,Section 63,"Heavy fines and/or imprisonment, based on violation severity"
+Category,Description,Section in Act,Key Points
+Enforcement,Oversee and ensure compliance with the Act,Section 53,"Has powers to investigate, impose fines, and issue corrective orders"
+Audits,Conduct regular audits of data controllers and processors,Section 54,"Can initiate audits, especially for high-risk organizations"
+Public Awareness,Promote awareness of data protection rights and obligations,Section 55,Initiatives to educate the public on their data rights
+Handling Complaints,Receive and handle complaints from data subjects,Section 56,Can mediate disputes or take legal action against violators
+Category,Description,Section in Act,Key Points
+Data Sharing with Third Parties,Data controllers must ensure that third-party data processors comply with the law,Section 42,Third parties must adhere to same data protection standards
+Cross-border Data Transfers,Data can only be transferred outside Kenya if adequate protection exists,Section 49,Includes assessing recipient country's data protection frameworks
+Category,Description,Section in Act,Key Points
+Anonymization and Pseudonymization,Encouraged when processing data for research or statistical purposes,Section 33,Data should be anonymized to prevent re-identification
+Automated Decision-Making,Data subjects have the right to object to decisions made solely based on automated processing,Section 37,Controllers must provide human oversight on significant decisions
+Category,Description,Section in Act,Key Points
+Consent Record Keeping,Controllers must keep records of consent and data processing activities,Section 32(2),"Proper documentation of consent, including when it was given"
+High-risk Data Processing,Define criteria for what constitutes high-risk data processing,Section 31(3),"High-risk processing includes profiling, large-scale surveillance"
+Data Processing Agreements,Controllers must have formal agreements with processors,Section 42,Processors must follow the instructions of controllers
+Accountability Framework,Establish internal accountability frameworks to ensure compliance,Section 26(f),"Regular audits, staff training, and internal policy checks"
