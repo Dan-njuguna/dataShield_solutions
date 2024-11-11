@@ -3,56 +3,36 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Datashield Solutions documentation
+Datashield Solutions Documentation
 ==================================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Welcome to the Datashield Solutions backend documentation. This guide provides comprehensive information about our system, its components, and how to use them effectively.
 
+Contents
+--------
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   core/index
    audit_log/index
    authentication/index
    compliance_management/index
    policy_management/index
    reporting/index
    analytics/index
+   ingestion/index
 
-.. automodule:: core
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Getting Started
+---------------
 
-.. automodule:: audit_log
-   :members:
-   :undoc-members:
-   :show-inheritance:
+To get started with Datashield Solutions, please refer to the individual module documentation listed in the Contents section above.
 
-.. automodule:: authentication
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
-.. automodule:: compliance_management
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Indices and Tables
+------------------
 
-.. automodule:: policy_management
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-.. automodule:: reporting
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-.. automodule:: analytics
-   :members:
-   :undoc-members:
-   :show-inheritance:
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

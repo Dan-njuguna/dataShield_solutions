@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Datashield Solutions documentation &#8212; Datashield Solutions  documentation</title>
+    <title>Datashield Solutions Documentation &#8212; Datashield Solutions  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
@@ -14,6 +14,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Core’s Documentation" href="core/index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,12 +33,194 @@
           <div class="body" role="main">
             
   <section id="datashield-solutions-documentation">
-<h1>Datashield Solutions documentation<a class="headerlink" href="#datashield-solutions-documentation" title="Link to this heading">¶</a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
+<h1>Datashield Solutions Documentation<a class="headerlink" href="#datashield-solutions-documentation" title="Link to this heading">¶</a></h1>
+<p>Welcome to the Datashield Solutions backend documentation. This guide provides comprehensive information about our system, its components, and how to use them effectively.</p>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audit_log/index.html">Audit Log Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audit_log/index.html#audit_log.models.AuditLog"><code class="docutils literal notranslate"><span class="pre">AuditLog</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_log/index.html#audit_log.views.audit_log_detail"><code class="docutils literal notranslate"><span class="pre">audit_log_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_log/index.html#audit_log.views.audit_log_list"><code class="docutils literal notranslate"><span class="pre">audit_log_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_log/index.html#audit_log.views.log_action_view"><code class="docutils literal notranslate"><span class="pre">log_action_view()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_log/index.html#audit_log.forms.AuditLogForm"><code class="docutils literal notranslate"><span class="pre">AuditLogForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/index.html">Authentication Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.models.Organization"><code class="docutils literal notranslate"><span class="pre">Organization</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.models.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.models.UserManager"><code class="docutils literal notranslate"><span class="pre">UserManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.organization_detail"><code class="docutils literal notranslate"><span class="pre">organization_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.organization_list"><code class="docutils literal notranslate"><span class="pre">organization_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.organization_register"><code class="docutils literal notranslate"><span class="pre">organization_register()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.user_detail"><code class="docutils literal notranslate"><span class="pre">user_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.user_list"><code class="docutils literal notranslate"><span class="pre">user_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.user_login"><code class="docutils literal notranslate"><span class="pre">user_login()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.views.user_register"><code class="docutils literal notranslate"><span class="pre">user_register()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.forms.OrganizationRegistrationForm"><code class="docutils literal notranslate"><span class="pre">OrganizationRegistrationForm</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/index.html#authentication.forms.UserRegistrationForm"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compliance_management/index.html">Compliance Management Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.ComplianceDocument"><code class="docutils literal notranslate"><span class="pre">ComplianceDocument</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.ComplianceReport"><code class="docutils literal notranslate"><span class="pre">ComplianceReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.ComplianceStatus"><code class="docutils literal notranslate"><span class="pre">ComplianceStatus</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.DPIA"><code class="docutils literal notranslate"><span class="pre">DPIA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.DataProcessingActivity"><code class="docutils literal notranslate"><span class="pre">DataProcessingActivity</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.DataProtectionRegulation"><code class="docutils literal notranslate"><span class="pre">DataProtectionRegulation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.Incident"><code class="docutils literal notranslate"><span class="pre">Incident</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.models.KenyaDPA"><code class="docutils literal notranslate"><span class="pre">KenyaDPA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.compliance_document_detail"><code class="docutils literal notranslate"><span class="pre">compliance_document_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.compliance_document_list"><code class="docutils literal notranslate"><span class="pre">compliance_document_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.compliance_report_detail"><code class="docutils literal notranslate"><span class="pre">compliance_report_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.compliance_report_list"><code class="docutils literal notranslate"><span class="pre">compliance_report_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.compliance_status_detail"><code class="docutils literal notranslate"><span class="pre">compliance_status_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.compliance_status_list"><code class="docutils literal notranslate"><span class="pre">compliance_status_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_compliance_document"><code class="docutils literal notranslate"><span class="pre">create_compliance_document()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_compliance_report"><code class="docutils literal notranslate"><span class="pre">create_compliance_report()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_compliance_status"><code class="docutils literal notranslate"><span class="pre">create_compliance_status()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_data_processing_activity"><code class="docutils literal notranslate"><span class="pre">create_data_processing_activity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_data_protection_regulation"><code class="docutils literal notranslate"><span class="pre">create_data_protection_regulation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_dpi_a"><code class="docutils literal notranslate"><span class="pre">create_dpi_a()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.create_incident"><code class="docutils literal notranslate"><span class="pre">create_incident()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.data_processing_activity_detail"><code class="docutils literal notranslate"><span class="pre">data_processing_activity_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.data_processing_activity_list"><code class="docutils literal notranslate"><span class="pre">data_processing_activity_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.data_protection_regulation_detail"><code class="docutils literal notranslate"><span class="pre">data_protection_regulation_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.data_protection_regulation_list"><code class="docutils literal notranslate"><span class="pre">data_protection_regulation_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.dpi_a_detail"><code class="docutils literal notranslate"><span class="pre">dpi_a_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.dpi_a_list"><code class="docutils literal notranslate"><span class="pre">dpi_a_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.incident_detail"><code class="docutils literal notranslate"><span class="pre">incident_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="compliance_management/index.html#compliance_management.views.incident_list"><code class="docutils literal notranslate"><span class="pre">incident_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.DoesNotExist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.approved_at"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.approved_at</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.approved_by"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.approved_by</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.approved_by_id"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.approved_by_id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.get_next_by_approved_at"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.get_next_by_approved_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.get_previous_by_approved_at"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.get_previous_by_approved_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.id"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.objects"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.policy"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.policy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.policy_id"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.policy_id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.ApprovalWorkflow.status"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy"><code class="docutils literal notranslate"><span class="pre">Policy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Policy.DoesNotExist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Policy.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.approvalworkflow_set"><code class="docutils literal notranslate"><span class="pre">Policy.approvalworkflow_set</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.created_at"><code class="docutils literal notranslate"><span class="pre">Policy.created_at</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.created_by"><code class="docutils literal notranslate"><span class="pre">Policy.created_by</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.created_by_id"><code class="docutils literal notranslate"><span class="pre">Policy.created_by_id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.description"><code class="docutils literal notranslate"><span class="pre">Policy.description</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Policy.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Policy.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Policy.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Policy.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.id"><code class="docutils literal notranslate"><span class="pre">Policy.id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.is_active"><code class="docutils literal notranslate"><span class="pre">Policy.is_active</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.objects"><code class="docutils literal notranslate"><span class="pre">Policy.objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.slug"><code class="docutils literal notranslate"><span class="pre">Policy.slug</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.title"><code class="docutils literal notranslate"><span class="pre">Policy.title</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.updated_at"><code class="docutils literal notranslate"><span class="pre">Policy.updated_at</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy.versions"><code class="docutils literal notranslate"><span class="pre">Policy.versions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion"><code class="docutils literal notranslate"><span class="pre">PolicyVersion</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.DoesNotExist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.created_at"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.created_at</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.created_by"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.created_by</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.created_by_id"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.created_by_id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.document"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.document</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.id"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.objects"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.policy"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.policy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.policy_id"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.policy_id</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion.version_number"><code class="docutils literal notranslate"><span class="pre">PolicyVersion.version_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.approval_workflow_detail"><code class="docutils literal notranslate"><span class="pre">approval_workflow_detail()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.approval_workflow_list"><code class="docutils literal notranslate"><span class="pre">approval_workflow_list()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.create_approval_workflow"><code class="docutils literal notranslate"><span class="pre">create_approval_workflow()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.create_policy"><code class="docutils literal notranslate"><span class="pre">create_policy()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.create_policy_version"><code class="docutils literal notranslate"><span class="pre">create_policy_version()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_detail"><code class="docutils literal notranslate"><span class="pre">policy_detail()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_list"><code class="docutils literal notranslate"><span class="pre">policy_list()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_version_detail"><code class="docutils literal notranslate"><span class="pre">policy_version_detail()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_version_list"><code class="docutils literal notranslate"><span class="pre">policy_version_list()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.forms.ApprovalWorkflowForm"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflowForm</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.ApprovalWorkflowForm.Meta"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflowForm.Meta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.ApprovalWorkflowForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflowForm.base_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.ApprovalWorkflowForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflowForm.declared_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.ApprovalWorkflowForm.media"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflowForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyForm"><code class="docutils literal notranslate"><span class="pre">PolicyForm</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyForm.Meta"><code class="docutils literal notranslate"><span class="pre">PolicyForm.Meta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PolicyForm.base_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PolicyForm.declared_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyForm.media"><code class="docutils literal notranslate"><span class="pre">PolicyForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyVersionForm"><code class="docutils literal notranslate"><span class="pre">PolicyVersionForm</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyVersionForm.Meta"><code class="docutils literal notranslate"><span class="pre">PolicyVersionForm.Meta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyVersionForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PolicyVersionForm.base_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyVersionForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PolicyVersionForm.declared_fields</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyVersionForm.media"><code class="docutils literal notranslate"><span class="pre">PolicyVersionForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reporting/index.html">Reporting Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.models.ComplianceAudit"><code class="docutils literal notranslate"><span class="pre">ComplianceAudit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.models.DataBreachReport"><code class="docutils literal notranslate"><span class="pre">DataBreachReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.models.ScheduledReport"><code class="docutils literal notranslate"><span class="pre">ScheduledReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.compliance_audit_detail"><code class="docutils literal notranslate"><span class="pre">compliance_audit_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.compliance_audit_list"><code class="docutils literal notranslate"><span class="pre">compliance_audit_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.create_compliance_audit"><code class="docutils literal notranslate"><span class="pre">create_compliance_audit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.create_data_breach_report"><code class="docutils literal notranslate"><span class="pre">create_data_breach_report()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.create_scheduled_report"><code class="docutils literal notranslate"><span class="pre">create_scheduled_report()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.data_breach_report_detail"><code class="docutils literal notranslate"><span class="pre">data_breach_report_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.data_breach_report_list"><code class="docutils literal notranslate"><span class="pre">data_breach_report_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.scheduled_report_detail"><code class="docutils literal notranslate"><span class="pre">scheduled_report_detail()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting/index.html#reporting.views.scheduled_report_list"><code class="docutils literal notranslate"><span class="pre">scheduled_report_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analytics/index.html">Analytics Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analytics/index.html#analytics.views.metrics_view"><code class="docutils literal notranslate"><span class="pre">metrics_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ingestion/index.html">Ingestion Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ingestion/index.html#ingestion.models.DataEntry"><code class="docutils literal notranslate"><span class="pre">DataEntry</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestion/index.html#ingestion.views.DataProcessView"><code class="docutils literal notranslate"><span class="pre">DataProcessView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestion/index.html#ingestion.views.DataResultView"><code class="docutils literal notranslate"><span class="pre">DataResultView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestion/index.html#ingestion.views.DataStatusView"><code class="docutils literal notranslate"><span class="pre">DataStatusView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestion/index.html#ingestion.views.DataUploadView"><code class="docutils literal notranslate"><span class="pre">DataUploadView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingestion/index.html#ingestion.views.homepage"><code class="docutils literal notranslate"><span class="pre">homepage()</span></code></a></li>
+</ul>
+</li>
+</ul>
 </div>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
+<p>To get started with Datashield Solutions, please refer to the individual module documentation listed in the Contents section above.</p>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and Tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -66,11 +249,37 @@ documentation for details.</p>
     </div>
 </search>
 <script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core’s Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audit_log/index.html">Audit Log Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/index.html">Authentication Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance_management/index.html">Compliance Management Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflow</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.models.Policy"><code class="docutils literal notranslate"><span class="pre">Policy</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.models.PolicyVersion"><code class="docutils literal notranslate"><span class="pre">PolicyVersion</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.approval_workflow_detail"><code class="docutils literal notranslate"><span class="pre">approval_workflow_detail()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.approval_workflow_list"><code class="docutils literal notranslate"><span class="pre">approval_workflow_list()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.create_approval_workflow"><code class="docutils literal notranslate"><span class="pre">create_approval_workflow()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.create_policy"><code class="docutils literal notranslate"><span class="pre">create_policy()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.create_policy_version"><code class="docutils literal notranslate"><span class="pre">create_policy_version()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_detail"><code class="docutils literal notranslate"><span class="pre">policy_detail()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_list"><code class="docutils literal notranslate"><span class="pre">policy_list()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_version_detail"><code class="docutils literal notranslate"><span class="pre">policy_version_detail()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.views.policy_version_list"><code class="docutils literal notranslate"><span class="pre">policy_version_list()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.forms.ApprovalWorkflowForm"><code class="docutils literal notranslate"><span class="pre">ApprovalWorkflowForm</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyForm"><code class="docutils literal notranslate"><span class="pre">PolicyForm</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy_management/index.html#policy_management.forms.PolicyVersionForm"><code class="docutils literal notranslate"><span class="pre">PolicyVersionForm</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting/index.html">Reporting Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analytics/index.html">Analytics Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ingestion/index.html">Ingestion Documentation</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="core/index.html" title="next chapter">Core’s Documentation</a></li>
   </ul></li>
 </ul>
 </div>
