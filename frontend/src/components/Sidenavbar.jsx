@@ -1,32 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import Dashboard from '../Pages/DashboardPage/Dashboard';
-import OverviewPage from '../Pages/Overview/OverviewPage';
-// import DSLogo from '../../Assets/DSlogo.png'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import '../index.css'; 
 
- function Sidenavbar() {
-
-
-  // Define a function to open the column when clicked
+function Sidenavbar() {
   return (
-    <>
-    {/* <div className='container'> */}
-        <div className='Sidenavbar'>
-          {/* <img src = {DSLogo} alt = ""/>
-          < */}
-            <ul>
-              <Link to = '/' element = {<Dashboard/>}>help</Link>
-              <Link to = '/' element = {<OverviewPage/>}>Overview</Link>
-            </ul>
-        {/* </div> */}
-        {/* <div className='side-column'>
-
-        </div> */}
-
+    <div className='Sidenavbar'>
+      <ul>
+        <li>
+          <NavLink to='/dashboard' activeClassName='active'>
+            Dashboard
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/overview' activeClassName='active'>
+            Overview
+          </NavLink>
+        </li>
+      </ul>
     </div>
-
-    </>
-    
-  )
+  );
 }
+
 export default Sidenavbar;

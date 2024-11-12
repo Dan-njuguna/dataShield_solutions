@@ -2,15 +2,6 @@ import os
 from django.db import models
 from authentication.models import User
 
-from dotenv import load_dotenv
-import os
-load_dotenv()
-
-DBUSER = os.getenv("DBUSER")
-DBNAME = os.getenv("DBNAME")
-DBPASS = os.getenv("DBPASS")
-DBHOST = os.getenv("DBHOST")
-DBPORT = os.getenv("DBPORT")
 
 
 class Policy(models.Model):

@@ -1,71 +1,48 @@
-
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
-from django.core import serializers
+from rest_framework import viewsets, permissions, throttling
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
 from .models import ScheduledReport, DataBreachReport, ComplianceAudit
-from .forms import ScheduledReportForm, DataBreachReportForm, ComplianceAuditForm
+from .serializers import ScheduledReportSerializer, DataBreachReportSerializer, ComplianceAuditSerializer
 
-def scheduled_report_list(request):
-    reports = ScheduledReport.objects.all()
-    data = serializers.serialize("json", reports)
-    return JsonResponse(data, safe=False)
+class ReportingPagination(PageNumberPagination):
+    """Custom pagination class for reporting models."""
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
+class ScheduledReportViewSet(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing scheduled reports.
+    
+    Provides list, create, retrieve, update, and delete functionalities.
+    Supports pagination and authentication.
+    """
+    queryset = ScheduledReport.objects.all()
+    serializer_class = ScheduledReportSerializer
+    pagination_class = ReportingPagination
+    permission_classes = [permissions.IsAuthenticated]
+    throttle_classes = [throttling.AnonRateThrottle]
 
-def scheduled_report_detail(request, id):
-    report = get_object_or_404(ScheduledReport, id=id)
-    data = serializers.serialize("json", [report])
-    return JsonResponse(data, safe=False)
+class DataBreachReportViewSet(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing data breach reports.
+    
+    Provides list, create, retrieve, update, and delete functionalities.
+    Supports pagination and authentication.
+    """
+    queryset = DataBreachReport.objects.all()
+    serializer_class = DataBreachReportSerializer
+    pagination_class = ReportingPagination
+    permission_classes = [permissions.IsAuthenticated]
 
-
-def data_breach_report_list(request):
-    reports = DataBreachReport.objects.all()
-    data = serializers.serialize("json", reports)
-    return JsonResponse(data, safe=False)
-
-
-def data_breach_report_detail(request, id):
-    report = get_object_or_404(DataBreachReport, id=id)
-    data = serializers.serialize("json", [report])
-    return JsonResponse(data, safe=False)
-
-
-def compliance_audit_list(request):
-    audits = ComplianceAudit.objects.all()
-    data = serializers.serialize("json", audits)
-    return JsonResponse(data, safe=False)
-
-
-def compliance_audit_detail(request, id):
-    audit = get_object_or_404(ComplianceAudit, id=id)
-    data = serializers.serialize("json", [audit])
-    return JsonResponse(data, safe=False)
-
-
-def create_scheduled_report(request):
-    if request.method == "POST":
-        form = ScheduledReportForm(request.POST)
-        if form.is_valid():
-            report = form.save()
-            data = serializers.serialize("json", [report])
-            return JsonResponse(data, status=201, safe=False)
-        return JsonResponse({"error": "Invalid data"}, status=400)
-
-
-def create_data_breach_report(request):
-    if request.method == "POST":
-        form = DataBreachReportForm(request.POST)
-        if form.is_valid():
-            report = form.save()
-            data = serializers.serialize("json", [report])
-            return JsonResponse(data, status=201, safe=False)
-        return JsonResponse({"error": "Invalid data"}, status=400)
-
-
-def create_compliance_audit(request):
-    if request.method == "POST":
-        form = ComplianceAuditForm(request.POST)
-        if form.is_valid():
-            audit = form.save()
-            data = serializers.serialize("json", [audit])
-            return JsonResponse(data, status=201, safe=False)
-        return JsonResponse({"error": "Invalid data"}, status=400)
+class ComplianceAuditViewSet(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing compliance audits.
+    
+    Provides list, create, retrieve, update, and delete functionalities.
+    Supports pagination and authentication.
+    """
+    queryset = ComplianceAudit.objects.all()
+    serializer_class = ComplianceAuditSerializer
+    pagination_class = ReportingPagination
+    permission_classes = [permissions.IsAuthenticated]

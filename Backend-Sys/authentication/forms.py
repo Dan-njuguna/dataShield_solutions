@@ -1,17 +1,29 @@
-# decompyle3 version 3.9.2
-# Python bytecode version base 3.8.0 (3413)
-# Decompiled from: Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 23:03:10) [MSC v.1916 64 bit (AMD64)]
-# Embedded file name: C:\Users\Susan\OneDrive\Desktop\datashield solutions\Backend-Sys\authentication\forms.py
-# Compiled at: 2024-10-29 14:57:18
-# Size of source mod 2**32: 760 bytes
 from django import forms
 from .models import User, Organization
 
 class UserRegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(), label="Password")
+    confirm_password = forms.CharField(widget=forms.PasswordInput(), label="Confirm Password")
+
     class Meta:
         model = User
-        fields = ["email","first_name","last_name","organization","password"]
-        widgets = {"password": (forms.PasswordInput())}
+        fields = [
+            "email",
+            "first_name",
+            "last_name",
+            "organization",
+            "phone_number",  # Added phone number
+            "dark_mode",     # Added dark mode preference
+            "password",
+        ]
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("password")
+        confirm_password = cleaned_data.get("confirm_password")
+
+        if password and confirm_password and password != confirm_password:
+            raise forms.ValidationError("Passwords do not match.")
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -24,6 +36,18 @@ class UserRegistrationForm(forms.ModelForm):
 class OrganizationRegistrationForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields =        ["name","address","contact_person","contact_email","contact_number","industry","company_size"]
+        fields = [
+            "name",
+            "address",  # Added address field
+            "contact_person",
+            "contact_email",
+            "contact_number",
+            "industry",
+            "company_size",
+        ]
 
-# okay decompiling forms.cpython-38.pyc
+    def clean_contact_email(self):
+        contact_email = self.cleaned_data.get("contact_email")
+        if Organization.objects.filter(contact_email=contact_email).exists():
+            raise forms.ValidationError("This contact email is already in use.")
+        return contact_email

@@ -1,6 +1,7 @@
+
 from django.urls import path
-from . import views
+from .views import MetricsView
 
 urlpatterns = [
-    path('metrics/', views.metrics_view, name='metrics'),  # Endpoint for metrics
+    path('metrics/', MetricsView.as_view(), name='metrics'),  # Endpoint for metrics
 ]
