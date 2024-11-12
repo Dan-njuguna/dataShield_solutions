@@ -15,14 +15,14 @@ function Topnavbar({ onLinkClick }) {
         </li>
         <li>
           <NavLink 
-            to='#' 
+            to='/audit_log' 
             onClick={() => onLinkClick({ title: 'Audit Logs', content: <AuditLogs /> })}>
             Audit Logs
           </NavLink>
         </li>
         <li>
           <NavLink 
-            to='#' 
+            to='/policy' 
             onClick={() => onLinkClick({ title: 'Policy Management', content: <PolicyPop /> })}>
             Policy Management
           </NavLink>
