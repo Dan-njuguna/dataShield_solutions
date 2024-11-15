@@ -1,7 +1,58 @@
 import React from 'react'
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 export default function Reportspop() {
-  return (
-    <div>Reportspop</div>
-  )
-}
+  const [generalreports, setGeneralreports] = useState([]);
+ const [loading, setLoading] = useState(true);
+ const [error, setError] = useState(null);
+
+ useEffect(() => {
+   const fetchGeneralreports = async () => {
+     try {
+       const response = await axios.get('http://localhost:8000/report/scheduled-report/', {
+         headers: {
+           Authorization: 'Token 4af02030ad9fe551a32e72afdddf66b385dc5e78',
+         },
+       });
+
+       console.log('Response data:', response.data);
+
+       // Check if response.data.results is an array
+       if (Array.isArray(response.data.results)) {
+         setGeneralreports(response.data.results);
+       } else {
+         throw new Error('Response data is not an array');
+       }
+     } catch (error) {
+       console.error('Error fetching reports:', error);
+       setError(error.response ? error.response.data : error.message);
+     } finally {
+       setLoading(false);
+     }
+   };
+
+   fetchGeneralreports();
+ }, []);
+
+ if (loading) return <div>Loading...</div>;
+ if (error) return <div>Error: {error}</div>;
+
+ return (
+   <div>
+     <h2>Compliance Reports</h2>
+     {generalreports.length > 0 ? (
+       <ul>
+         {generalreports.map(report => (
+           <li key={generalreports.id}>{generalreports.title || generalreports.generated_at || 'Report'}</li>
+         ))}
+       </ul>
+     ) : (
+       <div>No reports found.</div>
+     )}
+   </div>
+ );
+};
+
+
+

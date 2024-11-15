@@ -1,86 +1,103 @@
-from django.http import JsonResponse, Http404
-from django.contrib.auth import authenticate, login
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets, permissions, status
+from rest_framework.response import Response
 from .models import User, Organization
-from .forms import UserRegistrationForm, OrganizationRegistrationForm
-import json
+from .serializers import UserSerializer, OrganizationSerializer, UserRegistrationSerializer, OrganizationRegistrationSerializer
+from rest_framework.decorators import action
+from rest_framework.views import APIView
 
+class UserRegistrationView(APIView):
+    """
+    API View for user registration.
+    This view does not require authentication.
+    """
+    permission_classes = [permissions.AllowAny]  # Allow any user to access this endpoint
 
-@csrf_exempt
-def user_register(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        form = UserRegistrationForm(data)
-        if form.is_valid():
-            user = form.save()
-            return JsonResponse({'success':True,  'user_id':user.id,  'slug':user.slug}, status=201)
-        return JsonResponse({'success':False,  'errors':form.errors}, status=400)
-    return JsonResponse({'success':False,  'message':"Invalid request method."}, status=400)
+    def post(self, request):
+        serializer = UserRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response({
+                'status': 'User  registered successfully',
+                'user': UserSerializer(user).data
+            }, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing User instances.
+    """
+    queryset = User.objects.all().order_by('id') 
+    serializer_class = UserSerializer
 
-@csrf_exempt
-def organization_register(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        form = OrganizationRegistrationForm(data)
-        if form.is_valid():
-            organization = form.save()
-            return JsonResponse({'success':True,  'organization_id':organization.id,  'slug':organization.slug}, status=201)
-        return JsonResponse({'success':False,  'errors':form.errors}, status=400)
-    return JsonResponse({'success':False,  'message':"Invalid request method."}, status=400)
+    # Allow unauthenticated access to the list of users
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [permissions.AllowAny]  # Allow any user to access the list
+        else:
+            permission_classes = [permissions.IsAuthenticated]  # Require authentication for other actions
+        return [permission() for permission in permission_classes]
 
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
+    def enable_two_factor(self, request, pk=None):
+        user = self.get_object()
+        user.two_factor_enabled = True
+        user.save()
+        return Response({'status': 'Two-Factor Authentication enabled'})
 
-@csrf_exempt
-def user_login(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        email = data.get("email")
-        password = data.get("password")
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-            return JsonResponse({'success':True,  'user_id':user.id}, status=200)
-        return JsonResponse({'success':False,  'message':"Invalid credentials."}, status=400)
-    return JsonResponse({'success':False,  'message':"Invalid request method."}, status=400)
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
+    def disable_two_factor(self, request, pk=None):
+        user = self.get_object()
+        user.two_factor_enabled = False
+        user.save()
+        return Response({'status': 'Two-Factor Authentication disabled'})
 
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
+    def update_phone_number(self, request, pk=None):
+        user = self.get_object()
+        phone_number = request.data.get('phone_number')
+        if phone_number:
+            user.phone_number = phone_number
+            user.save()
+            return Response({'status': 'Phone number updated'})
+        return Response({'error': 'Phone number is required'}, status=status.HTTP_400_BAD_REQUEST)
 
-def user_list(request):
-    users = User.objects.all()
-    return JsonResponse({"users": (list(users.values()))}, safe=False)
+    @action(detail=True, methods=['get'], permission_classes=[permissions.IsAuthenticated])
+    def get_user_details(self, request, pk=None):
+        user = self.get_object()
+        return Response(UserSerializer(user).data)
 
+class OrganizationRegistrationView(APIView):
+    """
+    API View for organization registration.
+    This view does not require authentication.
+    """
+    permission_classes = [permissions.AllowAny]  # Allow any user to access this endpoint
 
-def organization_list(request):
-    organizations = Organization.objects.all()
-    return JsonResponse({"organizations": (list(organizations.values()))}, safe=False)
+    def post(self, request):
+        serializer = OrganizationRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            organization = serializer.save()
+            return Response({
+                'status': 'Organization registered successfully',
+                'organization': OrganizationSerializer(organization).data
+            }, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class OrganizationViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing Organization instances.
+    """
+    queryset = Organization.objects.all()
+    serializer_class = OrganizationSerializer
+    permission_classes = [permissions.IsAuthenticated]  # Default permission for all actions
 
-def user_detail(request, slug):
-    try:
-        user = User.objects.get(slug=slug)
-        user_data = {'id':user.id, 
-         'first_name':user.first_name, 
-         'last_name':user.last_name, 
-         'email':user.email, 
-         'organization':(user.organization).name, 
-         'slug':user.slug}
-        return JsonResponse({"user": user_data}, status=200)
-    except User.DoesNotExist:
-        raise Http404("User  not found")
+    @action(detail=True, methods=['get'], permission_classes=[permissions.IsAuthenticated])
+    def get_organization_details(self, request, pk=None):
+        organization = self.get_object()
+        return Response(OrganizationSerializer(organization).data)
 
-
-def organization_detail(request, slug):
-    try:
-        organization = Organization.objects.get(slug=slug)
-        organization_data = {'id':organization.id, 
-         'name':organization.name, 
-         'contact_person':organization.contact_person, 
-         'contact_email':organization.contact_email, 
-         'contact_number':organization.contact_number, 
-         'industry':organization.industry, 
-         'company_size':organization.company_size, 
-         'slug':organization.slug}
-        return JsonResponse({"organization": organization_data}, status=200)
-    except Organization.DoesNotExist:
-        raise Http404("Organization not found")
-
-# okay decompiling views.cpython-38.pyc
+    @action(detail=True, methods=['delete'], permission_classes=[permissions.IsAuthenticated])
+    def delete_organization(self, request, pk=None):
+        organization = self.get_object()
+        organization.delete()
+        return Response({'status': 'Organization deleted'}, status=status.HTTP_204_NO_CONTENT)

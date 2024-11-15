@@ -1,55 +1,48 @@
-# Size of source mod 2**32: 2118 bytes
-from django.http import JsonResponse, Http404
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets, permissions, throttling
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
 from .models import AuditLog
-from .forms import AuditLogForm
-import json
+from .serializers import AuditLogSerializer
 
-def audit_log_list(request):
-    """View to list all audit logs."""
-    logs = AuditLog.objects.all()
-    log_data = [
-        {
-            'id': log.id,
-            'action': log.action,
-            'affected_resource': log.affected_resource,
-            'user': log.user.email if (log.user) else "System",
-            'organization': (log.organization).name,
-            'created_at': log.created_at,
-            'is_compliant': log.is_compliant,
-            'slug': log.slug
-        } for log in logs
-    ]
+class AuditLogPagination(PageNumberPagination):
+    """Custom pagination class for AuditLog."""
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
-    return JsonResponse({"logs": log_data}, safe=False)
+class AuditLogViewSet(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing audit log entries.
+    
+    Provides list, create, retrieve, update, and delete functionalities.
+    Supports pagination, filtering, and authentication.
+    """
+    queryset = AuditLog.objects.all()
+    serializer_class = AuditLogSerializer
+    pagination_class = AuditLogPagination
+    permission_classes = [permissions.IsAuthenticated]  # Require authentication
+    throttle_classes = [throttling.AnonRateThrottle]  # Throttle for anonymous users
 
+    def get_queryset(self):
+        """
+        Optionally restricts the returned audit logs to a given organization,
+        by filtering against an `organization` query parameter in the URL.
+        Additionally, ensure the user has access to the organization.
+        """
+        queryset = super().get_queryset()
+        organization_id = self.request.query_params.get('organization')
 
-def audit_log_detail(request, slug):
-    """View to retrieve a specific audit log by slug."""
-    try:
-        log = AuditLog.objects.get(slug=slug)
-        log_data = {'id':log.id, 
-         'action':log.action, 
-         'affected_resource':log.affected_resource, 
-         'user':log.user.email if (log.user) else "System", 
-         'organization':(log.organization).name, 
-         'created_at':log.created_at, 
-         'is_compliant':log.is_compliant, 
-         'compliance_notes':log.compliance_notes, 
-         'additional_data':log.additional_data}
-        return JsonResponse({"log": log_data}, status=200)
-    except AuditLog.DoesNotExist:
-        raise Http404("Audit log not found")
+        if organization_id:
+            # Check if the user is part of the organization
+            if not self.request.user.organizations.filter(id=organization_id).exists():
+                # Return an empty queryset if the user does not belong to the organization
+                return queryset.none()  # Optionally, you could raise an exception here
 
+            # Filter by organization
+            queryset = queryset.filter(organization_id=organization_id)
 
-@csrf_exempt
-def log_action_view(request):
-    """View to log a new action."""
-    if request.method == "POST":
-        data = json.loads(request.body)
-        form = AuditLogForm(data)
-        if form.is_valid():
-            log_entry = form.save()
-            return JsonResponse({'success':True,  'log_id':log_entry.id,  'slug':log_entry.slug}, status=201)
-        return JsonResponse({'success':False,  'errors':form.errors}, status=400)
-    return JsonResponse({'success':False,  'message':"Invalid request method."}, status=400)
+        return queryset
+
+    def perform_create(self, serializer):
+        """Override to add the current user to the log entry."""
+        serializer.save(user=self.request.user)

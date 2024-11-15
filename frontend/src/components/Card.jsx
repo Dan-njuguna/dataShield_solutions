@@ -1,16 +1,12 @@
 import React from 'react';
-import '../index.css'
+import '../index.css';
 
- const Card = () =>{
+const Card = () => {
   return (
-  
     <div className='h1'>
-      <h1>
-        Welcome To Data shield!
-    </h1>
+      <h1>Welcome To Data Shield!</h1>
     </div>
-    
-   
-  )
-}
+  );
+};
+
 export default Card;
