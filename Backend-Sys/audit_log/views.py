@@ -26,12 +26,21 @@ class AuditLogViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """
         Optionally restricts the returned audit logs to a given organization,
-        by filtering against a `organization` query parameter in the URL.
+        by filtering against an `organization` query parameter in the URL.
+        Additionally, ensure the user has access to the organization.
         """
         queryset = super().get_queryset()
         organization_id = self.request.query_params.get('organization')
+
         if organization_id:
+            # Check if the user is part of the organization
+            if not self.request.user.organizations.filter(id=organization_id).exists():
+                # Return an empty queryset if the user does not belong to the organization
+                return queryset.none()  # Optionally, you could raise an exception here
+
+            # Filter by organization
             queryset = queryset.filter(organization_id=organization_id)
+
         return queryset
 
     def perform_create(self, serializer):

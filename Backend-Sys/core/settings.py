@@ -7,26 +7,24 @@ import os
 load_dotenv()
 
 # Parse the DATABASE_URL from environment variables
-DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
-    raise ValueError("DATABASE_URL environment variable not set.")
+# DATABASE_URL = os.getenv("DATABASE_URL")
+# if not DATABASE_URL:
+#     raise ValueError("DATABASE_URL environment variable not set.")
 
 # Use urlparse to extract components from the DATABASE_URL
-tmpPostgres = urlparse(DATABASE_URL)
+#tmpPostgres = urlparse(DATABASE_URL)
 
-# Configure the DATABASES setting for Django
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path[1:],  # Remove leading slash
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': tmpPostgres.port or '5432',
+        'NAME': 'datashield_solutions',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'UPl4zXyeag8u',
+        'HOST': 'ep-floral-smoke-a5i5ll2m.us-east-2.aws.neon.tech',
+        'PORT': '5432',  # Default PostgreSQL port
         'OPTIONS': {
             'sslmode': 'require',
         },
-        'DISABLE_SERVER_SIDE_CURSORS': True,
     }
 }
 
