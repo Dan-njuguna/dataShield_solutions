@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import os
+import logging
+import warnings
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
@@ -8,8 +10,13 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.llms import HuggingFacePipeline
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
-import faiss
-import warnings
+import re
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Suppress warnings
 warnings.filterwarnings("ignore")
 
 # Load environment variables
@@ -20,32 +27,34 @@ file_path = os.path.join(os.path.expanduser("~"), "Documents/Hackathons/THE-DATA
 
 # Step 1: Load the PDF document
 try:
+    logger.info("Loading the PDF document...")
     loader = PyPDFLoader(file_path)
     docs = loader.load()
-    print(f"Loaded {len(docs)} documents from PDF.")
-
+    logger.info(f"Loaded {len(docs)} documents from PDF.")
 except Exception as e:
-    print(f"Error loading document: {e}")
+    logger.error(f"Error loading document: {e}")
     exit(1)
 
 # Print a sample of the content
-print("Sample content:", docs[0].page_content[:200])
-print("Metadata:", docs[0].metadata)
+logger.info(f"Sample content: {docs[0].page_content[:200]}")
+logger.info(f"Metadata: {docs[0].metadata}")
 
 # Step 2: Split the document into chunks
+logger.info("Splitting the document into text chunks...")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
-print(f"Split into {len(splits)} text chunks.")
+logger.info(f"Split into {len(splits)} text chunks.")
 
 # Step 3: Initialize the embedding model using SentenceTransformer
 embedding_model_name = "sentence-transformers/all-MiniLM-L6-v2"
+logger.info(f"Initializing embedding model: {embedding_model_name}...")
 embedding_model = SentenceTransformer(embedding_model_name)
 
 # Define a function to embed text
 def embed_texts(texts):
     return embedding_model.encode(texts, show_progress_bar=True)
 
-# Step 4: Create an in-memory vector store using the embeddings
+# Step 4: Create or load the FAISS vector store
 class EmbeddingWrapper:
     def __init__(self, embed_func):
         self.embed_func = embed_func
@@ -54,12 +63,26 @@ class EmbeddingWrapper:
         return self.embed_func(texts)
 
 embedding_wrapper = EmbeddingWrapper(embed_texts)
+embedding_file_path = os.path.join(os.path.expanduser(".."), "../embeddings.faiss")
 
-# Save embeddings to disk
-embedding_file_path = os.path.join(os.path.expanduser("~"), "Documents/Hackathons/embeddings.faiss")
 if os.path.exists(embedding_file_path):
-    vectorstore = FAISS.load_local(embedding_file_path, embedding_wrapper)
+    try:
+        logger.info("Loading existing FAISS vector store...")
+        vectorstore = FAISS.load_local(
+            embedding_file_path,
+            embedding_wrapper,
+            allow_dangerous_deserialization=True
+        )
+        logger.info("Loaded FAISS vector store successfully.")
+    except Exception as e:
+        logger.warning(f"Error loading FAISS index: {e}. Rebuilding the vector store...")
+        vectorstore = FAISS.from_texts(
+            texts=[doc.page_content for doc in splits],
+            embedding=embedding_wrapper
+        )
+        vectorstore.save_local(embedding_file_path)
 else:
+    logger.info("Creating a new FAISS vector store...")
     vectorstore = FAISS.from_texts(
         texts=[doc.page_content for doc in splits],
         embedding=embedding_wrapper
@@ -67,7 +90,8 @@ else:
     vectorstore.save_local(embedding_file_path)
 
 # Step 5: Initialize a local HuggingFace pipeline for LLM
-llm_model_name = "tiiuae/falcon-7b-instruct"  # You can use any local model you have
+llm_model_name = "tiiuae/falcon-7b-instruct"
+logger.info(f"Initializing HuggingFace LLM pipeline with model: {llm_model_name}...")
 llm_pipeline = pipeline("text-generation", model=llm_model_name, device=-1, max_length=512)
 llm = HuggingFacePipeline(pipeline=llm_pipeline)
 
@@ -76,16 +100,15 @@ retriever = vectorstore.as_retriever()
 
 # Step 7: Example query
 query = "What are the key points in the data protection regulations?"
-print(f"Query: {query}")
+logger.info(f"Processing query: {query}")
 
-# Retrieve relevant documents and generate a response
 try:
     retrieved_docs = retriever.get_relevant_documents(query)
-    context = " ".join([doc.page_content for doc in retrieved_docs])
+    context = " ".join([doc.page_content[:1000] for doc in retrieved_docs])  # Truncate context
     response = llm(context)
-    print(f"Response: {response}")
+    logger.info(f"Generated response: {response}")
 except Exception as e:
-    print(f"Error during querying: {e}")
+    logger.error(f"Error during querying: {e}")
 
 # Step 8: Classify information to compliance and non-compliance
 def classify_compliance(text):
@@ -99,22 +122,28 @@ def classify_compliance(text):
     else:
         return "Unknown"
 
-# Example classification
+logger.info("Classifying retrieved documents...")
 for doc in retrieved_docs:
     classification = classify_compliance(doc.page_content)
-    print(f"Document classification: {classification}")
+    logger.info(f"Document classification: {classification}")
 
-# Step 9: Provide more information about the data section violations, subsection, and probable verdict
+# Step 9: Extract violation details
 def extract_violation_details(text):
-    # This is a placeholder function. You need to implement the logic to extract details.
-    # For example, you can use regex or NLP techniques to extract sections, subsections, and verdicts.
+    section_pattern = r"Section\s+(\d+)"
+    subsection_pattern = r"Subsection\s+([A-Za-z])"
+    fine_pattern = r"Fine of \$(\d+)"
+    
+    section = re.search(section_pattern, text)
+    subsection = re.search(subsection_pattern, text)
+    fine = re.search(fine_pattern, text)
+    
     return {
-        "section": "Section 1",
-        "subsection": "Subsection A",
-        "verdict": "Fine of $1000"
+        "section": section.group(1) if section else "Unknown",
+        "subsection": subsection.group(1) if subsection else "Unknown",
+        "verdict": f"Fine of ${fine.group(1)}" if fine else "Unknown"
     }
 
-# Example extraction
+logger.info("Extracting violation details from retrieved documents...")
 for doc in retrieved_docs:
     details = extract_violation_details(doc.page_content)
-    print(f"Violation details: {details}")
+    logger.info(f"Violation details: {details}")
