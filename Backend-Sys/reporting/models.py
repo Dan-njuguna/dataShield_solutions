@@ -7,11 +7,6 @@ from django.core.exceptions import ValidationError
 from dotenv import load_dotenv
 import os
 load_dotenv()
-DBUSER = os.getenv("DBUSER")
-DBNAME = os.getenv("DBNAME")
-DBPASS = os.getenv("DBPASS")
-DBHOST = os.getenv("DBHOST")
-DBPORT = os.getenv("DBPORT")
 
 class ScheduledReport(models.Model):
     __doc__ = "Model representing a scheduled compliance report for an organization."

@@ -6,8 +6,7 @@ class ScheduledReportSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = ScheduledReport
-        fields = ['id', 'organization', 'report_type', 'schedule_time', 'interval', 'email_recipients']
-        read_only_fields = ['id']
+        fields = '__all__'
 
 class DataBreachReportSerializer(serializers.ModelSerializer):
     """Serializer for the DataBreachReport model."""

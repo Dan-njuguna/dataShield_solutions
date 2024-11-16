@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Sidenavbar from '../../components/Sidenavbar';
 import Topnavbar from '../../components/Topnavbar';
-//import AuditLogs from '../../Pages/DashboardPage/DashContent/AuditLogsPop/AuditLogs';
 import './dashindex.css';
 import DSlogo from '../../img/DSlogo.png';
-//import axios from 'axios';
 import Reportspop from './DashContent/ReportsPop/Reportspop';
 
 function Dashboard() {
-  
-
+  const organizationName = "Cannon Ltd"; // Define the organization name
 
   return (
     <>
@@ -18,10 +15,9 @@ function Dashboard() {
         <div className="cont-col-1"><Sidenavbar /></div>
         <div className="cont-col-2">
           <img src={DSlogo} alt="Logo" className="logo" />
-          <p>Welcome to Data Shield</p>
-          <Reportspop/>
+          
+          <Reportspop organizationName={organizationName} /> {/* Pass the organization name as a prop */}
 
-         
         </div>
       </div>
     </>
