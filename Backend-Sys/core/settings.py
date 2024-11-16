@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from pathlib import Path
 from urllib.parse import urlparse
 from dotenv import load_dotenv

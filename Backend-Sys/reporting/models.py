@@ -1,4 +1,5 @@
-
+import sys
+sys.dont_write_bytecode = True
 from django.db import models
 from authentication.models import Organization, User
 from django.utils import timezone

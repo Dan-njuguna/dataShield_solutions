@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from rest_framework import serializers
 from .models import DataEntry
 

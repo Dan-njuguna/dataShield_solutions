@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView

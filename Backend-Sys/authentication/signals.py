@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.tokens import default_token_generator

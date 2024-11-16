@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 import os
 from django.db import models
 from authentication.models import User

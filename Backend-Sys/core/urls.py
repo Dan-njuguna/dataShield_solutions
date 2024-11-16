@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from django.contrib import admin
 from django.urls import path, include
 

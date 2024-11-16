@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from rest_framework import viewsets, permissions, throttling
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response

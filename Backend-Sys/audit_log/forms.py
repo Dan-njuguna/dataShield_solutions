@@ -1,4 +1,5 @@
-
+import sys
+sys.dont_write_bytecode = True
 from django import forms
 from .models import AuditLog
 

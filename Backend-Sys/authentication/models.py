@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser , BaseUserManager, PermissionsMixin
 from django.utils.text import slugify

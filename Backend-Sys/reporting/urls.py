@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import ScheduledReportViewSet, DataBreachReportViewSet, ComplianceAuditViewSet

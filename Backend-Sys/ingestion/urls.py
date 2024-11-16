@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 from django.urls import path
 from .views import DataUploadView, DataProcessView, DataStatusView, DataResultView
 
