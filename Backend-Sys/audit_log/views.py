@@ -20,7 +20,8 @@ class AuditLogViewSet(viewsets.ModelViewSet):
     queryset = AuditLog.objects.all()
     serializer_class = AuditLogSerializer
     pagination_class = AuditLogPagination
-    permission_classes = [permissions.IsAuthenticated]  # Require authentication
+    permission_classes = [permissions.
+    AllowAny]  # Require authentication
     throttle_classes = [throttling.AnonRateThrottle]  # Throttle for anonymous users
 
     def get_queryset(self):

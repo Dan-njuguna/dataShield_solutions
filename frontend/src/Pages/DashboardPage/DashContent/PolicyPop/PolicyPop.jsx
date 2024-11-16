@@ -11,7 +11,7 @@ export default  function PolicyPop() {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/compliance/policy/policy/', {
+        const response = await axios.get('http://localhost:8000/policy/approval-workflows/', {
           headers: {
             Authorization: 'Token 4af02030ad9fe551a32e72afdddf66b385dc5e78',
           },

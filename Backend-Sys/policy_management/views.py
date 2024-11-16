@@ -43,4 +43,4 @@ class ApprovalWorkflowViewSet(viewsets.ModelViewSet):
     """
     queryset = ApprovalWorkflow.objects.all()
     serializer_class = ApprovalWorkflowSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]

@@ -20,8 +20,15 @@ class ScheduledReportViewSet(viewsets.ModelViewSet):
     queryset = ScheduledReport.objects.all()
     serializer_class = ScheduledReportSerializer
     pagination_class = ReportingPagination
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
     throttle_classes = [throttling.AnonRateThrottle]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        organization_id = self.request.query_params.get('organization_id', None)
+        if organization_id is not None:
+            queryset = queryset.filter(organization_id=organization_id)
+        return queryset
 
 class DataBreachReportViewSet(viewsets.ModelViewSet):
     """
